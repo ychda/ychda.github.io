@@ -40,6 +40,7 @@ def fib(n):
     return b
 {% endhighlight %}
 
-参考：[algorithmist][algorithmist]
+参考：
+- [algorithmist][algorithmist]
 
 [algorithmist]: https://algorithmist.com/wiki/Memoization
