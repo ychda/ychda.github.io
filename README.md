@@ -1,1 +1,2 @@
-# ychda.github.io
+- [ychda.github.io](https://ychda.github.io)
+- [https://jekyllrb.com/docs/](https://jekyllrb.com/docs/)
