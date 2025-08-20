@@ -377,7 +377,7 @@
         if (withBorder) totalWidth += (40 * 2);
 
         // 生成结果文本
-        let resultText = "机柜配置参数：\n\n";
+        let resultText = "拼接屏支架参数：\n\n";
         resultText += `行数：${rows}行\n`;
         resultText += `顶盖：${withLid ? '带顶盖 (+40mm)' : '不带顶盖'}\n`;
         resultText += `列数：${columns}列\n`;
@@ -396,7 +396,8 @@
 
         // 显示结果
         document.getElementById('result').innerHTML = resultText.replace(/\n/g, '<br>');
-        document.getElementById('totalDimension').textContent = `总尺寸: ${totalWidth}mm × ${totalHeight}mm`;
+        // document.getElementById('totalDimension').textContent = `总尺寸: ${totalWidth}mm × ${totalHeight}mm`;
+        document.getElementById('totalDimension').innerHTML = `总尺寸:<br>${totalWidth}mm × ${totalHeight}mm`;
     }
 
     // 初始化页面时添加一些示例值
