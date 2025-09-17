@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LCD拼接屏尺寸计算</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2c3e50, #4a6491);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 0;
+        }
+
+        .input-section {
+            flex: 1;
+            min-width: 350px;
+            padding: 30px;
+            background: #f9fafb;
+            border-right: 1px solid #eaecef;
+        }
+
+        .result-section {
+            flex: 1;
+            min-width: 350px;
+            padding: 30px;
+            background: white;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 16px;
+        }
+
+        select, input[type="text"] {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        select:focus, input[type="text"]:focus {
+            border-color: #4a6491;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(74, 100, 145, 0.2);
+        }
+
+        .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 8px;
+        }
+
+        .radio-item {
+            display: flex;
+            align-items: center;
+            background: #f0f4f8;
+            padding: 10px 15px;
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+
+        .radio-item:hover {
+            background: #e6eef9;
+        }
+
+        input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            margin-right: 8px;
+        }
+
+        .help-text {
+            font-size: 13px;
+            color: #6b7280;
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #4a6491, #2c3e50);
+            color: white;
+            border: none;
+            padding: 16px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 17px;
+            font-weight: 600;
+            width: 100%;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, #2c3e50, #4a6491);
+            transform: translateY(-3px);
+            box-shadow: 0 7px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .result-box {
+            background: #f8f9fc;
+            border-radius: 10px;
+            padding: 25px;
+            border: 2px dashed #4a6491;
+            flex-grow: 1;
+            white-space: pre-wrap;
+            font-family: 'Courier New', monospace;
+            line-height: 1.8;
+            font-size: 16px;
+            overflow-y: auto;
+            max-height: 400px;
+        }
+
+        .result-title {
+            font-size: 22px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #eaecef;
+            text-align: center;
+        }
+
+        .highlight {
+            color: #4a6491;
+            font-weight: 600;
+        }
+
+        .dimension-box {
+            background: #e6eef9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .total-dimension {
+            font-size: 20px;
+            color: #2c3e50;
+            font-weight: 700;
+            text-align: center;
+            margin-top: 15px;
+            padding: 10px;
+            background: linear-gradient(135deg, #4a6491, #2c3e50);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+            }
+
+            .input-section {
+                border-right: none;
+                border-bottom: 1px solid #eaecef;
+            }
+
+            .radio-group {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        strong {
+            color: red;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>LCD拼接屏尺寸</h1>
+        <p class="description">根据输入参数计算LCD拼接屏总尺寸</p>
+    </header>
+
+    <div class="main-content">
+        <div class="input-section">
+            <div class="form-group">
+                <label for="rows">行数选择</label>
+                <select id="rows">
+                    <option value="1">1行</option>
+                    <option value="2">2行</option>
+                    <option value="3">3行</option>
+                    <option value="4">4行</option>
+                    <option value="5">5行</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>顶盖选项</label>
+                <div class="radio-group">
+                    <div class="radio-item">
+                        <input type="radio" id="withLid" name="lid" value="带顶盖" checked>
+                        <label for="withLid">带顶盖 (+40mm)</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="withoutLid" name="lid" value="不带顶盖">
+                        <label for="withoutLid">不带顶盖</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="columns">列数选择</label>
+                <select id="columns">
+                    <option value="1">1列</option>
+                    <option value="2">2列</option>
+                    <option value="3">3列</option>
+                    <option value="4">4列</option>
+                    <option value="5">5列</option>
+                    <option value="6">6列</option>
+                    <option value="7">7列</option>
+                    <option value="8">8列</option>
+                    <option value="9">9列</option>
+                    <option value="10">10列</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>边框选项</label>
+                <div class="radio-group">
+                    <div class="radio-item">
+                        <input type="radio" id="withBorder" name="border" value="带边框" checked>
+                        <label for="withBorder">带边框 (+40mm * 2)</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="withoutBorder" name="border" value="不带边框">
+                        <label for="withoutBorder">不带边框</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>屏幕尺寸选择</label>
+                <div class="radio-group">
+                    <div class="radio-item">
+                        <input type="radio" id="size46" name="size" value="46寸" data-width="1025" data-height="580"
+                               checked>
+                        <label for="size46">46寸 (1025mm × 580mm)</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="size49" name="size" value="49寸" data-width="1075" data-height="605">
+                        <label for="size49">49寸 (1075mm × 605mm)</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="size55" name="size" value="55寸" data-width="1215" data-height="685">
+                        <label for="size55">55寸 (1215mm × 685mm)</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="size65" name="size" value="65寸" data-width="1433" data-height="808">
+                        <label for="size65">65寸 (1433mm × 808mm)</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="baseHeight">底座高度 (mm)</label>
+                <input type="text" id="baseHeight" placeholder="请输入底座高度"
+                       oninput="this.value=this.value.replace(/\D/g,'')">
+                <p class="help-text">屏幕下沿距离静电地板距离，<strong>不</strong>包括静电地板下面</p>
+            </div>
+
+            <div class="form-group">
+                <label for="floorHeight">静电地板高度 (mm)</label>
+                <input type="text" id="floorHeight" placeholder="请输入静电地板高度"
+                       oninput="this.value=this.value.replace(/\D/g,'')">
+            </div>
+
+            <button class="btn" onclick="calculate()">计算并生成结果</button>
+        </div>
+
+        <div class="result-section">
+            <h2 class="result-title">计算结果</h2>
+            <div class="result-box" id="result">
+                <p>请输入参数后点击"计算并生成结果"按钮</p>
+            </div>
+
+            <div class="dimension-box">
+                <div id="totalDimension" class="total-dimension">总尺寸: 等待计算...</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // 计算并生成结果
+    function calculate() {
+        // 获取输入值
+        const rows = parseInt(document.getElementById('rows').value);
+        const withLid = document.getElementById('withLid').checked;
+        const columns = parseInt(document.getElementById('columns').value);
+        const withBorder = document.getElementById('withBorder').checked;
+
+        // 获取选中的尺寸
+        let selectedSize = '';
+        let screenWidth = 0;
+        let screenHeight = 0;
+        const sizes = document.getElementsByName('size');
+        for (const size of sizes) {
+            if (size.checked) {
+                selectedSize = size.value;
+                screenWidth = parseInt(size.dataset.width);
+                screenHeight = parseInt(size.dataset.height);
+                break;
+            }
+        }
+
+        const baseHeight = document.getElementById('baseHeight').value || '0';
+        const floorHeight = document.getElementById('floorHeight').value || '0';
+
+        // 转换为数字
+        const baseHeightNum = parseInt(baseHeight) || 0;
+        const floorHeightNum = parseInt(floorHeight) || 0;
+
+        // 计算总尺寸
+        let totalWidth = screenWidth * columns;
+        let totalHeight = screenHeight * rows + baseHeightNum;// + floorHeightNum;
+
+        // 添加顶盖和边框尺寸
+        if (withLid) totalHeight += 40;
+        if (withBorder) totalWidth += (40 * 2);
+
+        // 生成结果文本
+        let resultText = "拼接屏支架参数：\n\n";
+        resultText += `行数：${rows}行\n`;
+        resultText += `顶盖：${withLid ? '带顶盖 (+40mm)' : '不带顶盖'}\n`;
+        resultText += `列数：${columns}列\n`;
+        resultText += `边框：${withBorder ? '带边框 (+40mm)' : '不带边框'}\n`;
+        resultText += `屏幕尺寸：${selectedSize} (${screenWidth}mm × ${screenHeight}mm)\n`;
+        resultText += `底座高度：${baseHeightNum}mm\n`;
+        resultText += `静电地板高度：${floorHeightNum}mm\n\n`;
+
+        // resultText += "计算说明：\n";
+        // resultText += `总宽度 = 屏幕宽度 × 列数 ${withBorder ? '+ 边框宽度(40mm * 2)' : ''}\n`;
+        // resultText += `总高度 = 屏幕高度 × 行数 + 底座高度 + 静电地板高度 ${withLid ? '+ 顶盖高度(40mm)' : ''}\n\n`;
+
+        resultText += "静电地板上面需要的最小尺寸：\n";
+        resultText += `总宽度：${totalWidth}mm\n`;
+        resultText += `总高度：${totalHeight}mm\n`;
+
+        // 显示结果
+        document.getElementById('result').innerHTML = resultText.replace(/\n/g, '<br>');
+        // document.getElementById('totalDimension').textContent = `总尺寸: ${totalWidth}mm × ${totalHeight}mm`;
+        document.getElementById('totalDimension').innerHTML = `总尺寸:<br>${totalWidth}mm × ${totalHeight}mm`;
+    }
+
+    // 初始化页面时添加一些示例值
+    window.onload = function () {
+        document.getElementById('baseHeight').value = '800';
+        document.getElementById('floorHeight').value = '150';
+    }
+</script>
+</body>
+</html>

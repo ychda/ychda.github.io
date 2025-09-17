@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css");
+
+body {
+    font-family: "ubuntu mono", Consolas, monospace;
+    font-size: 1.2rem;
+    padding: 100px;
+}
+
+head {
+    display: block;
+}
+
+div > div {
+    font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", monospace;
+}
+
+nav {
+    display: flex;
+    border-bottom: 1px solid #ccc;
+}
+
+nav li {
+    list-style: none;
+}
+
+nav a {
+    margin: 0 5px;
+    padding: 5px 15px;
+    background-color: #f80;
+    border-radius: 3px 3px 0 0;
+    text-decoration: none;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover,
+a.active {
+    background-color: #fc2;
+    text-decoration: none;
+    color: black;
+}
+
+a:active {
+    order: -1;
+}
