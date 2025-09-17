@@ -7,7 +7,7 @@ if [ -d "./.git" ]; then
     git push origin HEAD:main
 else
     ls
-    rm -rf .git
+    # rm -rf .git
     git init
     git add --all
     git commit -m 'first init'
