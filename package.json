@@ -13,6 +13,7 @@
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
+    "howler": "^2.2.4",
     "sass": "^1.99.0",
     "vite": "^8.0.10"
   }
