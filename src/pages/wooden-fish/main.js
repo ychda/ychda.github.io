@@ -53,7 +53,7 @@ window.onload = () => {
         woodenFishElement.style.transform = "scale(0.95)";
         const div = document.createElement("div");
         div.classList.add("subtitle-count-tip");
-        div.innerText = "功德 + 1，佛祖保佑你！";
+        div.innerHTML = "功德 + 1<br>佛祖保佑你！";
         centerElement.appendChild(div);
         setTimeout(() => {
             div.remove();
