@@ -5,10 +5,18 @@ bgm.volume = 0.3;
 
 function hideLoading() {
     const loadingElement = document.querySelector("#loading");
+    const mainContent = document.querySelector(".center-content");
     if (loadingElement) {
         loadingElement.remove();
+        mainContent.style.display = "block";
     }
 }
+
+const loadingElement = document.querySelector("#loading");
+const mainContent = document.querySelector(".center-content");
+loadingElement.style.display = "block";
+mainContent.style.display = "none";
+
 
 window.onload = () => {
     hideLoading();
