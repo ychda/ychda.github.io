@@ -1,0 +1,167 @@
+@use "../../common/common.scss" as *;
+
+// 关于页独有样式
+.page-banner {
+  width: 100%;
+  height: 320px;
+  background: linear-gradient(135deg, #f0f7ff 0%, #e6f0ff 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  .banner-content {
+    h1 {
+      font-size: var(--font-4xl);
+      color: var(--text-color);
+      margin-bottom: var(--space-base);
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    p {
+      font-size: var(--font-lg);
+      color: var(--text-gray);
+      line-height: 1.6;
+    }
+  }
+}
+
+// 关于页简介模块
+.about-content {
+  padding: var(--space-4xl) 0;
+  background: var(--white);
+
+  h2 {
+    text-align: center;
+    font-size: var(--font-3xl);
+    color: var(--text-color);
+    margin: 0 auto var(--space-3xl);
+    //margin-bottom: var(--space-3xl);
+    max-width: fit-content;
+    position: relative;
+    line-height: 1.2;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 3px;
+      background: var(--primary-color);
+      margin: var(--space-sm) auto 0;
+      border-radius: 3px;
+    }
+  }
+
+  .about-card {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--space-2xl);
+    background: var(--bg-color);
+    border-radius: 12px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+
+    p {
+      font-size: var(--font-base);
+      color: var(--text-gray);
+      line-height: 2;
+      margin-top: var(--space-base);
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    ul, ol {
+      list-style-type: circle;
+      margin-left: 2rem;
+    }
+  }
+}
+
+// 关于页兴趣模块
+.hobby {
+  padding: var(--space-4xl) 0;
+  background: var(--bg-color);
+
+  h2 {
+    text-align: center;
+    font-size: var(--font-3xl);
+    color: var(--text-color);
+    max-width: fit-content;
+    margin: 0 auto var(--space-3xl);
+    position: relative;
+    line-height: 1.2;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 3px;
+      background: var(--primary-color);
+      margin: var(--space-sm) auto 0;
+      border-radius: 3px;
+    }
+  }
+
+  .hobby-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-2xl);
+
+    .hobby-item {
+      padding: var(--space-2xl);
+      background: var(--white);
+      border-radius: 12px;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+
+      &:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 8px 25px rgba(37, 99, 235, 0.15);
+      }
+
+      h3 {
+        font-size: var(--font-xl);
+        color: var(--primary-color);
+        margin-bottom: var(--space-base);
+        line-height: 1.3;
+      }
+
+      p {
+        font-size: var(--font-sm);
+        color: var(--text-gray);
+        line-height: 1.8;
+      }
+    }
+  }
+}
+
+// 关于页移动端独有适配
+@media screen and (max-width: 768px) {
+  .page-banner {
+    height: 220px;
+
+    .banner-content h1 {
+      font-size: var(--font-2xl);
+    }
+  }
+  .about-content {
+    padding: var(--space-3xl) 0;
+
+    h2 {
+      font-size: var(--font-2xl);
+    }
+
+    .about-card {
+      padding: var(--space-base);
+    }
+  }
+  .hobby {
+    padding: var(--space-3xl) 0;
+
+    .hobby-list {
+      grid-template-columns: 1fr;
+    }
+  }
+}

@@ -1,0 +1,40 @@
+/* 全局统一变量 & 基础重置 */
+:root {
+  --font-family: Helvetica, "Microsoft YaHei", sans-serif;
+  --primary-color: #2563eb;
+  --primary-light: #3b82f6;
+  --text-color: #333333;
+  --text-gray: #666666;
+  --text-light: #94959a;
+  //--text-a-link: #00539f;;
+  --text-a-link: #ff9500;
+  --bg-color: #f8f9fa;
+  --white: #ffffff;
+  --border-color: #eeeeee;
+  --transition: all 0.3s ease;
+  //color: #1d72ea;
+  //color: #0a9e75;
+  //color: #7c3aed;
+  //color: #e53e3e;
+  //color: #f97316;
+
+
+  /* 统一字体规范 */
+  --font-xs: 12px;
+  --font-sm: 14px;
+  --font-base: 16px;
+  --font-lg: 18px;
+  --font-xl: 20px;
+  --font-2xl: 24px;
+  --font-3xl: 32px;
+  --font-4xl: 48px;
+
+  /* 统一间距规范 */
+  --space-sm: 12px;
+  --space-base: 16px;
+  --space-lg: 20px;
+  --space-xl: 30px;
+  --space-2xl: 40px;
+  --space-3xl: 50px;
+  --space-4xl: 80px;
+}

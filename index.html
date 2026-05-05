@@ -3,41 +3,98 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="static/favicon.png" type="image/png">
-    <title>Hello, world!</title>
-    <link rel="stylesheet" href="static/style.css">
+    <title>Hello, World!</title>
+    <link rel="stylesheet" href="./src/common/common.scss">
+    <link rel="stylesheet" href="./src/pages/index/style.scss">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="./src/assets/favicon.png" type="image/png">
 </head>
 <body>
-<div class="container">
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-        </ul>
-        <ul>
-            <li><a href="/docs">Docs</a></li>
-        </ul>
-        <ul>
-            <li><a href="/wooden-fish">电子木鱼</a></li>
-        </ul>
-        <ul>
-            <li><a href="/about">About</a></li>
-        </ul>
-    </nav>
-    <main>
-        <article>
-            <h1>定風波·莫聽穿林打葉聲</h1>
-            <p><a href="https://zh.wikipedia.org/wiki/苏轼" target="_blank">蘇軾</a>〔北宋〕</p>
 
-            <p>三月七日，沙湖道中遇雨，雨具先去，同行皆狼狽，余獨不覺。已而遂晴，故作此（詞）。</p>
+<header class="header">
+    <div class="container">
+        <div class="logo">Hello, World!</div>
+        <nav class="nav">
+            <ul>
+                <li><a href="/index.html">首页</a></li>
+                <li><a href="/news.html">动态分享</a></li>
+                <li><a href="/news.html">Links</a></li>
+                <li><a href="/about.html">关于我</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
 
-            <p><a href="https://zh.m.wikisource.org/zh/定風波_(莫聽穿林打葉聲)"
-                  target="_blank">莫聽穿林打葉聲</a>，何妨吟嘯且徐行；</p>
-            <p>竹杖芒鞋輕勝馬，誰怕？一蓑烟雨任平生。</p>
-            <p>料峭春風吹酒醒，微冷、山頭斜照卻相迎；</p>
-            <p>回首向來蕭瑟處，歸去、也無風雨也無晴。</p>
-        </article>
-    </main>
-    <aside></aside>
-</div>
+
+<section class="banner">
+    <div class="banner-content">
+        <h1>你好，欢迎来到我的个人网站</h1>
+        <p>热爱生活、热爱技术、持续记录与成长</p>
+        <a href="/about.html" class="btn">了解更多</a>
+    </div>
+</section>
+
+<section class="intro">
+    <div class="container">
+        <h2>本站介绍</h2>
+        <div class="intro-card">
+            <p>
+                这是一个使用 Vite + 原生 HTML/CSS/JS 搭建的轻量化个人网站，
+                全程采用工程化开发，页面独立样式、独立脚本，结构清晰，加载流畅。
+            </p>
+            <p>
+                在这里我会记录日常感悟、学习笔记、生活碎片与兴趣分享，
+                以简单纯粹的方式，留存属于自己的点滴时光。
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="skill">
+    <div class="container">
+        <h2>技能特长</h2>
+        <div class="skill-list">
+            <div class="skill-item">
+                <h3>前端开发</h3>
+                <p>熟练掌握原生 HTML/CSS/JS，熟悉 Vite 工程化开发，可独立搭建轻量化静态网站。</p>
+            </div>
+            <div class="skill-item">
+                <h3>页面设计</h3>
+                <p>擅长简约干净的页面布局，注重页面交互细节、适配体验与视觉层次感。</p>
+            </div>
+            <div class="skill-item">
+                <h3>持续学习</h3>
+                <p>坚持沉淀技术，记录学习笔记，不断打磨代码能力与审美能力。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="entry">
+    <div class="container">
+        <h2>站点导航</h2>
+        <div class="entry-list">
+            <a href="news.html" class="entry-card">
+                <h3>动态分享</h3>
+                <p>记录日常学习、生活与心得感悟</p>
+            </a>
+            <a href="about.html" class="entry-card">
+                <h3>关于我</h3>
+                <p>了解我的个人简介、经历与爱好</p>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- 回到顶部按钮 -->
+<button id="to-top">回到顶部</button>
+
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2025-2026 个人原创网站 | All Rights Reserved</p>
+    </div>
+</footer>
+
+<script type="module" src="./src/pages/index/main.js"></script>
 </body>
 </html>
