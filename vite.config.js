@@ -3,7 +3,7 @@ import path from 'path'
 
 export default defineConfig({
     plugins: [],
-    base: '/ychda.github.io/',
+    base: '/',
     build: {
         rollupOptions: {
             input: {
