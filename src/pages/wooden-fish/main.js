@@ -1,5 +1,8 @@
-const sound = new Audio("../../../src/assets/audio/sound.mp3");
-const bgm = new Audio("../../../src/assets/audio/bgm.mp3");
+import soundSrc from "../../assets/audio/sound.mp3";
+import bgmSrc from "../../assets/audio/bgm.mp3";
+
+const sound = new Audio(soundSrc);
+const bgm = new Audio(bgmSrc);
 bgm.loop = true;
 bgm.volume = 0.3;
 
