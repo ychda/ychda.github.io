@@ -1,26 +1,56 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --background: #ffffff;
+    --foreground: #171717;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --font-sans: var(--font-geist-sans);
+    --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+    :root {
+        --background: #0a0a0a;
+        --foreground: #ededed;
+    }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* 给文章内容使用的 Tailwind 原生样式 */
+.prose-markdown h1 {
+    @apply text-3xl font-bold text-gray-900 mt-8 mb-4;
+}
+
+.prose-markdown h2 {
+    @apply text-2xl font-semibold text-gray-800 mt-7 mb-3;
+}
+
+.prose-markdown h3 {
+    @apply text-xl font-semibold text-gray-800 mt-6 mb-2;
+}
+
+.prose-markdown p {
+    @apply text-gray-700 text-lg leading-8 mb-4;
+}
+
+.prose-markdown ul,
+.prose-markdown ol {
+    @apply ml-5 mb-4;
+}
+
+.prose-markdown li {
+    @apply leading-8 mb-2 text-gray-700;
+}
+
+.prose-markdown strong {
+    @apply font-bold text-gray-900;
 }
