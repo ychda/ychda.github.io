@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "termux-dev": "next dev --webpack"
   },
   "dependencies": {
     "autoprefixer": "^10.5.0",
