@@ -25,7 +25,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/* 给文章内容使用的 Tailwind 原生样式 */
+/* 文章排版 */
 .prose-markdown h1 {
     @apply text-3xl font-bold text-gray-900 mt-8 mb-4;
 }
@@ -39,11 +39,7 @@ body {
 }
 
 .prose-markdown p {
-    @apply text-gray-700 text-lg leading-6 mb-4;
-}
-
-.prose-markdown a {
-    @apply bg-gray-200 text-gray-700 text-lg leading-6 mb-4;
+    @apply text-gray-700 text-lg leading-8 mb-4;
 }
 
 .prose-markdown ul,
@@ -67,18 +63,20 @@ body {
     @apply font-bold text-gray-900;
 }
 
-/* 行内代码 <code> */
+.prose-markdown a {
+    @apply text-blue-600 underline hover:text-blue-800;
+}
+
+/* 行内代码 */
 .prose-markdown code {
     @apply bg-gray-100 text-red-600 px-1.5 py-0.5 rounded text-sm font-mono;
 }
 
-/* 代码块 <pre><code> */
+/* 代码块 */
 .prose-markdown pre {
-    @apply bg-gray-900 text-white p-4 rounded-lg my-6 overflow-x-auto text-sm font-mono leading-relaxed;
+    @apply bg-gray-900 p-4 rounded-lg my-6 overflow-x-auto;
 }
 
-/* 代码块里的 code 标签不重复样式 */
 .prose-markdown pre code {
-    @apply bg-transparent text-white p-0 rounded-none;
+    @apply bg-transparent p-0 rounded-none text-white;
 }
-

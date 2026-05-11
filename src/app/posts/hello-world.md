@@ -17,6 +17,13 @@ public class HelloWorld {
 }
 ```
 
+```javascript
+function hello() {
+  const name = "GitHub";
+  console.log("Hello " + name); // 注释
+  return 123;
+}
+```
 
 ## 需要学习了解
 - TypeScript
