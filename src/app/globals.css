@@ -39,12 +39,24 @@ body {
 }
 
 .prose-markdown p {
-    @apply text-gray-700 text-lg leading-8 mb-4;
+    @apply text-gray-700 text-lg leading-6 mb-4;
+}
+
+.prose-markdown a {
+    @apply bg-gray-200 text-gray-700 text-lg leading-6 mb-4;
 }
 
 .prose-markdown ul,
 .prose-markdown ol {
     @apply ml-5 mb-4;
+}
+
+.prose-markdown ul {
+    @apply list-disc;
+}
+
+.prose-markdown ol {
+    @apply list-decimal;
 }
 
 .prose-markdown li {
@@ -54,3 +66,19 @@ body {
 .prose-markdown strong {
     @apply font-bold text-gray-900;
 }
+
+/* 行内代码 <code> */
+.prose-markdown code {
+    @apply bg-gray-100 text-red-600 px-1.5 py-0.5 rounded text-sm font-mono;
+}
+
+/* 代码块 <pre><code> */
+.prose-markdown pre {
+    @apply bg-gray-900 text-white p-4 rounded-lg my-6 overflow-x-auto text-sm font-mono leading-relaxed;
+}
+
+/* 代码块里的 code 标签不重复样式 */
+.prose-markdown pre code {
+    @apply bg-transparent text-white p-0 rounded-none;
+}
+
