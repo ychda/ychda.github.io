@@ -9,9 +9,9 @@ export default function Header() {
                 </Link>
                 <nav className="space-x-4">
                     <Link href="/" className="hover:text-blue-600">首页</Link>
-                    <Link href="/posts" className="hover:text-blue-600">所有博客</Link>
-                    <Link href="/links" className="hover:text-blue-600">常用链接</Link>
-                    <Link href="/about" className="hover:text-blue-600">关于我</Link>
+                    <Link href="/posts" className="hover:text-blue-600">博客</Link>
+                    <Link href="/links" className="hover:text-blue-600">链接</Link>
+                    <Link href="/about" className="hover:text-blue-600">关于</Link>
                 </nav>
             </div>
         </header>
