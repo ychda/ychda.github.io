@@ -1,6 +1,6 @@
 // src/app/posts/page.tsx
-import {getSortedPostsData, PostMeta} from '@/lib/posts';
 import Link from 'next/link';
+import {getSortedPostsData, PostMeta} from "@/lib/posts";
 
 export const metadata = {
     title: '所有博客 | 我的个人博客',

@@ -15,7 +15,7 @@ export interface PostData extends PostMeta {
     contentHtml: string;
 }
 
-const postsDirectory = path.join(process.cwd(), 'src/app/posts');
+const postsDirectory = path.join(process.cwd(), 'src/app/(site)/posts');
 
 // ✅ 修复后的函数：过滤文件夹，只读取 .md 文件
 export function getSortedPostsData(): PostMeta[] {

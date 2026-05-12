@@ -1,5 +1,5 @@
-import {getSortedPostsData} from '@/lib/posts';
 import Link from 'next/link';
+import {getSortedPostsData} from "@/lib/posts";
 
 export default function Home() {
     // 获取所有博客，只取前5条

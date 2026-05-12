@@ -1,6 +1,6 @@
-import {getPostData, getSortedPostsData, PostData} from '@/lib/posts';
 import {notFound} from 'next/navigation';
-import CodeHighlight from '@/components/CodeHighlight';
+import {getPostData, getSortedPostsData, PostData} from "@/lib/posts";
+import CodeHighlight from "@/components/blog/CodeHighlight";
 
 export async function generateStaticParams() {
     const posts = getSortedPostsData();
