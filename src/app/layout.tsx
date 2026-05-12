@@ -3,7 +3,7 @@ import type {Metadata} from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-    title: '个人技术博客',
+    title: 'Hello, World!',
     description: '基于 Next.js + Tailwind CSS 构建',
 };
 

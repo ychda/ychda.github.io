@@ -1,12 +1,12 @@
 'use client';
 import Link from 'next/link';
-import { useState } from 'react';
+import {useState} from 'react';
 
 const navList = [
-    { label: '首页', path: '/' },
-    { label: '博客', path: '/posts' },
-    { label: '友链', path: '/links' },
-    { label: '关于', path: '/about' },
+    {label: '首页', path: '/'},
+    {label: '博客', path: '/posts'},
+    {label: '链接', path: '/links'},
+    {label: '关于', path: '/about'},
 ];
 
 export default function Header() {
