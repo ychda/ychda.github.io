@@ -2,13 +2,14 @@
 title: '我的第一篇博客'
 date: '2026-05-11'
 excerpt: '这是文章简介内容'
+tags: ["Next.js", "github"]
 ---
 
 # 第一篇博客
 
 这是使用 Markdown 编写的第一篇博客。
 
-添加文章内容的时候，在目录`src/app/posts/`新增文章，命名格式如`hello-world.md`，将会自动生成页面代码。
+添加文章内容的时候，在目录`/posts`新增文章，命名格式如`hello-world.md`，将会自动生成页面代码。
 
 ```java
 public class HelloWorld {

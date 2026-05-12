@@ -1,6 +1,6 @@
 ---
 title: 'Next.js 入门教程'
-date: '2026-05-11'
+date: '2026-05-12'
 excerpt: "记录学习 Next.js + Tailwind CSS 的过程"
 tags: ["Next.js", "前端"]
 ---
