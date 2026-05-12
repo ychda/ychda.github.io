@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-    --background: #ffffff;
+    --background: #fff;
     --foreground: #171717;
 }
 
@@ -22,24 +22,27 @@
 body {
     background: var(--background);
     color: var(--foreground);
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: system-ui, sans-serif;
+}
+p{
+    @apply mt-3;
 }
 
-/* 文章排版 */
+/* Markdown 文章排版 */
 .prose-markdown h1 {
-    @apply text-3xl font-bold text-gray-900 mt-8 mb-4;
+    @apply text-3xl font-bold text-gray-900 dark:text-white mt-8 mb-4;
 }
 
 .prose-markdown h2 {
-    @apply text-2xl font-semibold text-gray-800 mt-7 mb-3;
+    @apply text-2xl font-semibold text-gray-800 dark:text-gray-100 mt-7 mb-3;
 }
 
 .prose-markdown h3 {
-    @apply text-xl font-semibold text-gray-800 mt-6 mb-2;
+    @apply text-xl font-semibold text-gray-700 dark:text-gray-200 mt-6 mb-2;
 }
 
 .prose-markdown p {
-    @apply text-gray-700 text-lg leading-8 mb-4;
+    @apply text-gray-700 dark:text-gray-300 text-lg leading-8 mb-4;
 }
 
 .prose-markdown ul,
@@ -56,20 +59,20 @@ body {
 }
 
 .prose-markdown li {
-    @apply leading-8 mb-2 text-gray-700;
+    @apply leading-8 mb-2 text-gray-700 dark:text-gray-300;
 }
 
 .prose-markdown strong {
-    @apply font-bold text-gray-900;
+    @apply font-bold text-gray-900 dark:text-white;
 }
 
 .prose-markdown a {
-    @apply text-blue-600 no-underline  hover:text-blue-800 hover:underline visited:text-shadow-blue-800;
+    @apply text-blue-600 dark:text-blue-400 no-underline hover:underline;
 }
 
 /* 行内代码 */
 .prose-markdown code {
-    @apply bg-gray-100 text-red-600 px-1.5 py-0.5 rounded text-sm font-mono;
+    @apply bg-gray-100 dark:bg-gray-800 text-red-600 dark:text-red-400 px-1.5 py-0.5 rounded text-sm font-mono;
 }
 
 /* 代码块 */

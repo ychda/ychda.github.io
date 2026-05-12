@@ -1,6 +1,7 @@
 ---
 title: '测试文章内容'
 date: '2026-05-11'
+excerpt: '这里在测试文章简介功能'
 ---
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 

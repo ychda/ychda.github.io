@@ -1,43 +1,41 @@
-// src/app/posts/page.tsx
+import {getSortedPostsData} from '@/lib/posts';
 import Link from 'next/link';
-import {getSortedPostsData, PostMeta} from "@/lib/posts";
 
-export const metadata = {
-    title: '所有博客 | 我的个人博客',
-};
+// 强制定义类型
+interface PostMeta {
+    id: string;
+    title: string;
+    date: string;
+    contentHtml?: string;
+}
 
-export default function PostsPage() {
-    // 获取所有博客
-    const allPosts = getSortedPostsData();
+export default async function PostsPage() {
+    // 🔥 核心修复：无论如何都保证是数组！！！
+    const data = await getSortedPostsData();
+    const allPosts: PostMeta[] = Array.isArray(data) ? data : [];
 
     return (
-        <div className="max-w-4xl mx-auto py-6 space-y-8">
-            {/* 标题 */}
-            <div className="text-center">
-                <h1 className="text-3xl font-bold">所有博客</h1>
-                <p className="text-gray-500 mt-2">记录学习与思考</p>
-            </div>
+        <div className="max-w-4xl mx-auto px-4 py-12">
+            <h1 className="text-3xl font-bold mb-8">博客列表</h1>
 
-            {/* 博客列表 */}
-            <div className="space-y-4">
-                {allPosts.length === 0 ? (
-                    <p className="text-center text-gray-500 py-10">暂无博客文章</p>
-                ) : (
-                    allPosts.map((post: PostMeta) => (
-                        <div
+            {allPosts.length === 0 ? (
+                <div className="py-12 text-center text-gray-500">
+                    暂无文章
+                </div>
+            ) : (
+                <div className="grid gap-4">
+                    {allPosts.map((post) => (
+                        <Link
                             key={post.id}
-                            className="p-5 border rounded-xl hover:shadow-md transition-all"
+                            href={`/posts/${post.id}`}
+                            className="block p-6 border rounded-xl hover:shadow-md hover:border-blue-400 transition-all"
                         >
-                            <Link href={`/posts/${post.id}`}>
-                                <h2 className="text-xl font-semibold text-blue-600 hover:underline">
-                                    {post.title}
-                                </h2>
-                                <p className="text-gray-500 text-sm mt-2">{post.date}</p>
-                            </Link>
-                        </div>
-                    ))
-                )}
-            </div>
+                            <h2 className="text-xl font-semibold">{post.title}</h2>
+                            <p className="text-gray-500 mt-1 text-sm">{post.date}</p>
+                        </Link>
+                    ))}
+                </div>
+            )}
         </div>
     );
 }
