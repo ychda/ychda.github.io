@@ -2,15 +2,15 @@ import type {Metadata} from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-    title: '个人技术博客',
-    description: '使用 Next.js + Tailwind CSS 构建的博客',
+    title: 'Hello, World!',
+    description: '记录生活、记录代码',
     // 👇 全局默认 OG 图
     openGraph: {
         type: 'website',
-        title: '个人技术博客',
+        title: 'Hello, World!',
         description: '使用 Next.js + Tailwind CSS 构建的博客',
         url: 'https://ychda.github.io',
-        siteName: '个人技术博客',
+        siteName: 'Hello, World!',
         images: [
             {
                 url: 'https://ychda.github.io/bg.png',
