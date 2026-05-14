@@ -13,7 +13,7 @@ export const metadata: Metadata = {
         siteName: '个人技术博客',
         images: [
             {
-                url: 'https://ychda.github.io/src/public/bg.png',
+                url: 'https://ychda.github.io/bg.png',
                 width: 1200,
                 height: 630,
                 alt: '博客封面',
