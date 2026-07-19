@@ -1,0 +1,4 @@
+allowBuilds:
+  sharp: false
+minimumReleaseAgeExclude:
+  - postcss@8.5.19
