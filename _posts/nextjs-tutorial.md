@@ -1,0 +1,16 @@
+---
+title: "Next.js 入门教程"
+date: "2026-05-12"
+excerpt: "记录学习 Next.js + Tailwind CSS 的过程"
+tags: ["Next.js", "前端"]
+---
+
+## Next.js 快速入门
+
+Next.js 是一个基于 React 的全栈框架，支持服务端渲染、静态站点生成等特性。
+
+### 核心特性
+
+1. 路由系统
+2. 服务端组件
+3. 内置优化
